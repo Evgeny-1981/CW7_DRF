@@ -10,10 +10,14 @@ from habits.services import send_telegram_message
 def telegram_sender():
     """Отправка сообщения из бота в Телеграм с напоминанием о привычке"""
     habits = Habit.objects.all().order_by("time")
+    print(habits)
     current_time = datetime.now().time()
+    print(current_time)
     for habit in habits:
-        if habit.user.telegram_id and habit.time > current_time:
-            tg_chat_id = habit.user.telegram_id
+        print(habit)
+        if habit.owner.telegram_id and habit.time > current_time:
+            print("Все есть")
+            tg_chat_id = habit.owner.telegram_id
             message = habit.__str__()
             send_telegram_message(tg_chat_id, message)
         else:

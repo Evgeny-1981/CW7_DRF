@@ -211,7 +211,7 @@ CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 CELERY_BEAT_SCHEDULE = {
     "habits_sender": {
         "task": "habits.tasks.telegram_sender",
-        "schedule": timedelta(minutes=2),
+        "schedule": timedelta(minutes=1),
     },
 }
 BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")

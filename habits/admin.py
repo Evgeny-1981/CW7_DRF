@@ -5,6 +5,7 @@ from habits.models import Habit
 
 @admin.register(Habit)
 class HabitAdmin(admin.ModelAdmin):
+    """Регистрация привычек в админке."""
 
     list_display = (
         "id",

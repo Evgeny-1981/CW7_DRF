@@ -209,9 +209,9 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 CELERY_BEAT_SCHEDULE = {
-    "check_inactive_users": {
-        "task": "users.tasks.check_inactive_users",
-        "schedule": timedelta(days=1),
+    "habits_sender": {
+        "task": "habits.tasks.telegram_sender",
+        "schedule": timedelta(minutes=2),
     },
 }
 BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")

@@ -34,9 +34,9 @@ class User(AbstractUser):
         **NULLABLE
     )
 
-    tg_chat_id = models.CharField(
+    telegram_id = models.CharField(
         max_length=100,
-        verbose_name="tg_chat_id",
+        verbose_name="telegram_id",
         help_text="Введите ID чата",
         **NULLABLE
     )

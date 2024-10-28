@@ -13,12 +13,12 @@ from habits.views import (
 app_name = HabitsConfig.name
 
 urlpatterns = [
-    path("habits/create/", HabitCreateAPIView.as_view(), name="habits-create"),
-    path("habits/<int:pk>/update/", HabitUpdateAPIView.as_view(), name="habits-update"),
+    path("habits/create/", HabitCreateAPIView.as_view(), name="habits_create"),
+    path("habits/<int:pk>/update/", HabitUpdateAPIView.as_view(), name="habits_update"),
     path(
-        "habits/<int:pk>/destroy/", HabitDestroyAPIView.as_view(), name="habits-destroy"
+        "habits/<int:pk>/delete/", HabitDestroyAPIView.as_view(), name="habits_delete"
     ),
-    path("habits/", HabitListAPIView.as_view(), name="habits-list"),
-    path("habits/<int:pk>/", HabitRetrieveAPIView.as_view(), name="habits-retrieve"),
-    path("public/", PublicHabitListAPIView.as_view(), name="public"),
+    path("habits/", HabitListAPIView.as_view(), name="habits_list"),
+    path("habits/<int:pk>/", HabitRetrieveAPIView.as_view(), name="habits_retrieve"),
+    path("habits_public/", PublicHabitListAPIView.as_view(), name="habits_public"),
 ]

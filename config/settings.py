@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     "drf_yasg",
     "corsheaders",
     "django_celery_beat",
+    # "users.apps.UsersConfig",
+    # "habits.apps.HabitsConfig",
 ]
 
 MIDDLEWARE = [
@@ -212,3 +214,5 @@ CELERY_BEAT_SCHEDULE = {
         "schedule": timedelta(days=1),
     },
 }
+BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")
+TELEGRAM_URL = "https://api.telegram.org/bot"

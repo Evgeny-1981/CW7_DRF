@@ -6,7 +6,7 @@ NULLABLE = {"blank": True, "null": True}
 
 
 class Habit(models.Model):
-    """Привычки и его свойства"""
+    """Привычки и их свойства"""
 
     owner = models.ForeignKey(
         User,

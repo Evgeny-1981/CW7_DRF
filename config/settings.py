@@ -46,10 +46,10 @@ INSTALLED_APPS = [
     "rest_framework",
     "users",
     "habits",
-   # "rest_framework_simplejwt",
-   # "drf_yasg",
-   # "corsheaders",
-   # "django_celery_beat",
+    "rest_framework_simplejwt",
+    "drf_yasg",
+    "corsheaders",
+    "django_celery_beat",
 ]
 
 MIDDLEWARE = [

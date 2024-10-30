@@ -11,7 +11,10 @@ class HabitAwardsValidator:
 
     def __call__(self, value):
         award = dict(value).get(self.field1)
+        print(award)
         associated_habit = dict(value).get(self.field2)
+        print(associated_habit)
+
         if award and associated_habit:
             raise exceptions.ValidationError(
                 "Одновременный выбор связанной привычки и вознаграждения запрещен."

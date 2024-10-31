@@ -214,5 +214,5 @@ CELERY_BEAT_SCHEDULE = {
         "schedule": timedelta(minutes=1),
     },
 }
-BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")
-TELEGRAM_URL = "https://api.telegram.org/bot"
+TG_BOT_TOKEN = os.getenv("TG_BOT_TOKEN")
+TELEGRAM_URL = os.getenv("TG_URL")

@@ -18,7 +18,7 @@ class HabitAdmin(admin.ModelAdmin):
         "periodicity",
         "award",
         "execution_time",
-        "is_public",
+        "is_public_habit",
     )
     list_filter = ("owner",)
     search_fields = ("owner", "action")

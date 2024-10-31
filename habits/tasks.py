@@ -1,5 +1,7 @@
 from datetime import timedelta
 from datetime import datetime
+from config import settings
+import pytz
 from celery import shared_task
 
 from habits.models import Habit
@@ -10,26 +12,25 @@ from habits.services import send_telegram_message
 def telegram_sender():
     """Отправка сообщения из бота в Телеграм с напоминанием о привычке"""
 
-    # Отбираем полезные привычки, время выполнения которых наступило
-    associated_habit = dict(value).get(self.field)
-    time_now = datetime.now()
     habits = Habit.objects.all()
-    time_start = time_now - timedelta(minutes=1)
-    time_end = time_now + timedelta(minutes=1)
 
     # Формируем сообщение напоминания в Telegram
     for habit in habits:
         user = habit.owner
-        if time_start.time() <= habit.time <= time_end.time():
-            message = f"Настало время выполнить - {habit.action} в {habit.place}."
-            related_habit = habit.associated_habit
+        time_start = habit.time.replace(second=0, microsecond=0)
+        time_now = datetime.now(pytz.timezone(settings.TIME_ZONE)).replace(second=0, microsecond=0)
+        if time_start == time_now:
+            message = f"Настало время: {habit.action} место: {habit.place}."
 
         # Дополняем текст уведомления, если у полезной привычки есть связанная привычка или вознаграждение.
-
             if habit.award:
                 message += f" После наградите себя -  {habit.award}."
             elif habit.associated_habit:
                 message += f" После можете выполнить - {habit.associated_habit}"
+
+            # Устанавливаем дату следующей отправки для привычки
+            habit.time = datetime.now(pytz.timezone(settings.TIME_ZONE)) + timedelta(days=habit.periodicity)
+            habit.save()
 
             # Выводим сообщение о результате выполнения отправки сообщения
             if user.telegram_id:

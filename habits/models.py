@@ -21,7 +21,7 @@ class Habit(models.Model):
         help_text="Введите место выполнения привычки",
         **NULLABLE,
     )
-    time = models.TimeField(verbose_name="Время, когда нужно выполнить привычку",
+    time = models.DateTimeField(verbose_name="Время, когда нужно выполнить привычку",
                             help_text="Введите время выполнения привычки",)
 
     action = models.CharField(

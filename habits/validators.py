@@ -11,9 +11,7 @@ class HabitAwardsValidator:
 
     def __call__(self, value):
         award = dict(value).get(self.field1)
-        print(award)
         associated_habit = dict(value).get(self.field2)
-        print(associated_habit)
 
         if award and associated_habit:
             raise exceptions.ValidationError(
@@ -22,7 +20,7 @@ class HabitAwardsValidator:
 
 
 class DurationValidator:
-    """Проверка длительности выполнения задания"""
+    """Проверка времени выполнения полезной привычки, не более 120 секунд"""
 
     def __init__(self, execution_time):
         self.execution_time = execution_time
@@ -37,7 +35,8 @@ class DurationValidator:
 
 
 class AssociatedHabitValidator:
-    """Могут попадать только привычки с признаком приятной привычки"""
+    """Проверка на то, что в связанные привычки могут попадать только привычки
+    с признаком приятной привычки"""
 
     def __init__(self, field):
         self.field = field
@@ -60,8 +59,8 @@ class PleasantHabitAwardsValidator:
 
     def __call__(self, value):
         associated_habit = dict(value).get("associated_habit")
-        is_pleasant_habit = dict(value).get(self.field1)
-        award = dict(value).get(self.field2)
+        is_pleasant_habit = dict(value).get("is_pleasant_habit")
+        award = dict(value).get("award")
 
         if award is not None and is_pleasant_habit is True:
             raise serializers.ValidationError(

@@ -20,13 +20,13 @@ def telegram_sender():
         time_start = habit.time.replace(second=0, microsecond=0)
         time_now = datetime.now(pytz.timezone(settings.TIME_ZONE)).replace(second=0, microsecond=0)
         if time_start == time_now:
-            message = f"Настало время: {habit.action} место: {habit.place}."
+            message = f"Настало время: {habit.action}, место выполнения: {habit.place}."
 
         # Дополняем текст уведомления, если у полезной привычки есть связанная привычка или вознаграждение.
             if habit.award:
-                message += f" После наградите себя -  {habit.award}."
+                message += f" После наградите себя: {habit.award}."
             elif habit.associated_habit:
-                message += f" После можете выполнить - {habit.associated_habit}"
+                message += f" После можете выполнить: {habit.associated_habit}"
 
             # Устанавливаем дату следующей отправки для привычки
             habit.time = datetime.now(pytz.timezone(settings.TIME_ZONE)) + timedelta(days=habit.periodicity)

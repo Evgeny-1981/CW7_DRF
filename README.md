@@ -30,21 +30,19 @@
 7. Запустите Redis
 
          sudo service redis-server start
-8. Перейдите в админку по адресу http://127.0.0.1:8000/admin. Введите параметры учетной записи admin@sky.pro и пароль 1238. 
-Заполните пользователей с указанием ID телеграма и привычки.
-9. Запустите проект 
+8. Запустите проект 
 
          python3 manage.py runserver
-10. Перейдите в админку по адресу http://127.0.0.1:8000/admin. Введите параметры учетной записи admin@sky.pro и пароль 1238. 
+9. Перейдите в админку по адресу http://127.0.0.1:8000/admin. Введите параметры учетной записи admin@sky.pro и пароль 1238. 
 Заполните пользователей с указанием ID телеграма и привычки.
-11. В терминале Pycharm запустить службы worker и beat 
+10. В терминале Pycharm запустить службы worker и beat 
 
          celery -A config beat -l info -S django 
          python3 -m celery -A config worker -l info 
 либо одной командой 
 
     пше celery -A config  worker --beat --scheduler django --loglevel=info
-12. После этого каждую минуту (время можно изменить в параметре CELERY_BEAT_SCHEDULE файла SETTINGS) будет выполняться задача.
+11. После этого каждую минуту (время можно изменить в параметре CELERY_BEAT_SCHEDULE файла SETTINGS) будет выполняться задача.
 
 
 

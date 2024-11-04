@@ -43,7 +43,6 @@ class HabitTestCase(APITestCase):
         url = reverse("habits:habits_list")
         response = self.client.get(url)
         data = response.json()
-        print(data)
         result = {
             "count": 1,
             "next": None,

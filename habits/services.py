@@ -8,9 +8,3 @@ def send_telegram_message(tg_chat_id, message):
     params = {"chat_id": tg_chat_id, "text": message}
     # r = requests.get(f"{TELEGRAM_URL}{TG_BOT_TOKEN}/sendMessage", params=params)
     requests.get(f"{TELEGRAM_URL}{TG_BOT_TOKEN}/sendMessage", params=params)
-    #
-    # if r.status_code == 200:
-    #     print("Сообщение отправлено")
-    # else:
-    #     print("Ошибка отправки")
-

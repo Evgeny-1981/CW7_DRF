@@ -17,7 +17,7 @@ class HabitTestCase(APITestCase):
             owner=self.user,
             action="Тестовая привычка 1",
             is_pleasant_habit=True,
-            time="2024-11-04T08:00:00",
+            time="2024-11-04T08:00:00Z",
             place="Дом",
             periodicity=1,
         )
@@ -29,7 +29,7 @@ class HabitTestCase(APITestCase):
             "owner": self.user.pk,
             "action": "Тестовая привычка 2",
             "is_pleasant_habit": "True",
-            "time": "2024-11-04T08:10:00",
+            "time": "2024-11-04T08:10:00Z",
             "place": "Дом",
             "periodicity": 1,
         }
@@ -59,7 +59,7 @@ class HabitTestCase(APITestCase):
                     "owner": self.user.pk,
                     "periodicity": 1,
                     "place": "Дом",
-                    'time': '2024-11-04T08:00:00',
+                    'time': '2024-11-04T08:00:00Z',
 
                 }
             ],

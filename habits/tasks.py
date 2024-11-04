@@ -35,6 +35,6 @@ def telegram_sender():
             # Выводим сообщение о результате выполнения отправки сообщения
             if user.telegram_id:
                 send_telegram_message(user.telegram_id, message)
-                print(f"Напоминание отправлено пользователю {user.email}.")
+                print(f"Напоминание отправлено пользователю {user.email}, телеграм id {user.telegram_id}")
             else:
                 print(f"Не удалось отправить напоминание пользователю, так как не указан ID телеграма. {user.email}.")

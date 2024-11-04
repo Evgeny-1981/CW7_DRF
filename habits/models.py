@@ -22,7 +22,7 @@ class Habit(models.Model):
         **NULLABLE,
     )
     time = models.DateTimeField(verbose_name="Время, когда нужно выполнить привычку",
-                            help_text="Введите время выполнения привычки",)
+                                help_text="Введите время выполнения привычки",)
 
     action = models.CharField(
         max_length=256,

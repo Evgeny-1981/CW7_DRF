@@ -41,7 +41,7 @@
          python3 -m celery -A config worker -l info 
 либо одной командой 
 
-    пше celery -A config  worker --beat --scheduler django --loglevel=info
+    celery -A config  worker --beat --scheduler django --loglevel=info
 11. После этого каждую минуту (время можно изменить в параметре CELERY_BEAT_SCHEDULE файла SETTINGS) будет выполняться задача.
 
 

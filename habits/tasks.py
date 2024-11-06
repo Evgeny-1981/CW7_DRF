@@ -13,9 +13,11 @@ def telegram_sender():
     """Отправка сообщения из бота в Телеграм с напоминанием о привычке"""
 
     habits = Habit.objects.all()
+    # проверяем наличие того, что указан telegram_id пользователя
+    habbits = habits.exclude(owner__telegram_id__isnull=True)
 
     # Формируем сообщение напоминания в Telegram
-    for habit in habits:
+    for habit in habbits:
         user = habit.owner
         time_start = habit.time.replace(second=0, microsecond=0)
         time_now = datetime.now(pytz.timezone(settings.TIME_ZONE)).replace(second=0, microsecond=0)

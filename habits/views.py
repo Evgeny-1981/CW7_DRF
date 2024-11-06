@@ -56,7 +56,6 @@ class HabitListAPIView(ListAPIView):
     queryset = Habit.objects.all()
     permission_classes = (
         IsAuthenticated,
-        IsOwner,
     )
     pagination_class = CustomPagination
 
